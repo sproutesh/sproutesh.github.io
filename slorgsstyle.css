@@ -1,0 +1,1076 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Creepster&family=Cutive+Mono&display=swap");
+/* clean up */
+#sb_top, #sb_side, #page_banner, #page_footer, #petLead, #petLinks, hr, #petImage strong, #petRecord, ::-webkit-scrollbar, scrollbar {
+    display: none
+    }
+/* body basics etc */
+body {
+    background: url(https://i.imgur.com/ksL6JvY.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-y: top
+    }
+body, td, p, b, #petStats strong, #blurb {
+    font-family: "Cutive Mono";
+    font-size: 11pt;
+    color: #000;
+    line-height: 12pt;
+    justify-content: center;
+    margin: 0
+    }
+a, a:visited {
+    color: #046909;
+    font-size: 10pt
+    }
+a:hover {
+    color: #8dd18c
+    }
+#page_event {
+    grid-area: event;
+    justify-content: center;
+    width: 595px;
+    min-height: 0;
+    height: fit-content
+    }
+.flex-2col {
+    flex: 1 1 40%;
+    max-width: 250px;
+    margin: auto;
+    padding-top: 10px
+    }
+/* container and centering */
+#page_content {
+    margin: auto;
+    width: 40vw;
+    min-width: 500px;
+    height: fit-content
+    }
+#container {
+    margin: 205px auto 3%;
+    width: 40vw;
+    min-width: 500px;
+    background: #fff;
+    box-shadow: 0 0 10px 12px #619743;
+    display: block;
+    border-radius: 30px;
+    border: 1px solid #619743
+    }
+/* flex stuff */
+#petLookupContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    align-items: center
+    }
+#petDescription, #petTop {
+    display: contents
+    }
+#petBattle, .pet--petpetheader {
+    display: none
+    }
+#petStats {
+    background-image: linear-gradient(to right, #fff, #dbf5df, #fff);
+    width: 90%;
+    text-align: center;
+    height: fit-content;
+    scrollbar-width: none;
+    padding: 0
+    }
+/* flex order */
+.pet--header {
+    color: #000;
+    font-size: 8pt;
+    margin: 0;
+    order: 1
+    }
+.pet--name {
+    color: #2d8034;
+    font-size: 50px;
+    font-family: "Creepster";
+    display: block;
+    margin-top: 25px;
+    height: 30px
+    }
+#blurb {
+    width: 90%;
+    height: fit-content;
+    order: 2;
+    text-align: center
+    }
+#petPetpet {
+    order: 3
+    }
+#petInfo::before {
+    content: "(Hover for the group pic! Everyslorg, say 'slime'!)"
+    }
+.pet--image {
+    content: url(https://i.imgur.com/54KM2IX.png);
+    width: 200px
+    }
+#petInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background: #fff;
+    padding-top: 10px;
+    order: 4;
+    align-items: center;
+    max-height: 20px;
+    overflow: hidden;
+    transition: ease-in-out 0.5s
+    }
+#petInfo:hover {
+    max-height: 500px
+    }
+#nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background: #d4f9d9;
+    height: fit-content;
+    gap: 10%;
+    order: 5
+    }
+/* nav */
+#nav a, #nav a:visited {
+    color: #214c21;
+    font-size: 10pt;
+    padding: 5px
+    }
+#nav a:hover {
+    color: #96b599;
+    font-size: 10pt;
+    padding: 5px
+    }
+/* slorg sizes */
+.pet--petpetimg.med-image {
+    width: 100px;
+    mix-blend-mode: multiply
+    }
+.pet--petpetimg.med-image:hover {
+    -webkit-animation: jello-vertical 0.9s both;
+    animation: jello-vertical 0.9s both
+    }
+/* filligree */
+.footer {
+    background: url(https://i.imgur.com/rpn53wk.png);
+    background-size: cover;
+    width: 100%;
+    pointer-events: none;
+    font-size: 0;
+    z-index: 2;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    order: 5;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: -10px;
+    margin-top: -200px
+    }
+.slorg {
+    background: url(https://i.imgur.com/gESN6SZ.png);
+    background-size: 100%;
+    height: 225px;
+    width: 200px;
+    font-size: 0;
+    position: absolute;
+    top: 5px;
+    margin-left: -250px;
+    z-index: 2;
+    background-repeat: no-repeat;
+    -webkit-animation: drop-in 2s 0.3s both;
+    animation: drop-in 2s 0.3s both
+    }
+#slorgin {
+    position: fixed;
+    bottom: -10px;
+    left: 0;
+    height: 100px;
+    transform: scalex(-1);
+    animation: walking 60s linear infinite;
+    z-index: 3
+    }
+@keyframes walking {
+    0% {
+        left: 0;
+        transform: scaleX(-1);
+        } 49% {
+        transform: scaleX(-1);
+        } 50% {
+        left: 93%;
+        transform: scaleX(1);
+        } 99% {
+        transform: scaleX(1);
+        } 100% {
+        left: 0;
+        transform: scaleX(-1);
+        }
+    }
+/* drop in */
+@-webkit-keyframes drop-in {
+    0% {
+        -webkit-transform: translateY(-800px) rotate(-540deg);
+        transform: translateY(-800px) rotate(-540deg);
+        } 20% {
+        -webkit-transform: translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
+        } 21% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        } 30% {
+        -webkit-transform: scale3d(0.85, 1.20, 1);
+        transform: scale3d(0.85, 1.20, 1);
+        } 40% {
+        -webkit-transform: scale3d(1.20, 0.85, 1);
+        transform: scale3d(1.20, 0.85, 1);
+        } 50% {
+        -webkit-transform: scale3d(0.85, 1.15, 1);
+        transform: scale3d(0.85, 1.15, 1);
+        } 65% {
+        -webkit-transform: scale3d(1.05, 0.95, 1);
+        transform: scale3d(1.05, 0.95, 1);
+        } 75% {
+        -webkit-transform: scale3d(0.95, 1.05, 1);
+        transform: scale3d(0.95, 1.05, 1);
+        } 100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        }
+    }
+@keyframes roll-in-top {
+    0% {
+        -webkit-transform: translateY(-800px) rotate(-540deg);
+        transform: translateY(-800px) rotate(-540deg);
+        } 100% {
+        -webkit-transform: translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
+        }
+    }
+/* slello animation, from animista.com (: */
+@-webkit-keyframes jello-vertical {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        } 30% {
+        -webkit-transform: scale3d(0.75, 1.25, 1);
+        transform: scale3d(0.75, 1.25, 1);
+        } 40% {
+        -webkit-transform: scale3d(1.25, 0.75, 1);
+        transform: scale3d(1.25, 0.75, 1);
+        } 50% {
+        -webkit-transform: scale3d(0.85, 1.15, 1);
+        transform: scale3d(0.85, 1.15, 1);
+        } 65% {
+        -webkit-transform: scale3d(1.05, 0.95, 1);
+        transform: scale3d(1.05, 0.95, 1);
+        } 75% {
+        -webkit-transform: scale3d(0.95, 1.05, 1);
+        transform: scale3d(0.95, 1.05, 1);
+        } 100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        }
+    }
+@keyframes jello-vertical {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        } 30% {
+        -webkit-transform: scale3d(0.75, 1.25, 1);
+        transform: scale3d(0.75, 1.25, 1);
+        } 40% {
+        -webkit-transform: scale3d(1.25, 0.75, 1);
+        transform: scale3d(1.25, 0.75, 1);
+        } 50% {
+        -webkit-transform: scale3d(0.85, 1.15, 1);
+        transform: scale3d(0.85, 1.15, 1);
+        } 65% {
+        -webkit-transform: scale3d(1.05, 0.95, 1);
+        transform: scale3d(1.05, 0.95, 1);
+        } 75% {
+        -webkit-transform: scale3d(0.95, 1.05, 1);
+        transform: scale3d(0.95, 1.05, 1);
+        } 100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        }
+    }
+/* slorgnization */
+/* alien */
+#pet_p2_025d4f63::before {
+    content: "Sold by Nessa, named by Carrion";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_025d4f63::after {
+    content: "This slorg boldly crawls where no slorg has slimed before.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* baby */
+#pet_p2_b8c4c7ca::before {
+    content: "Gifted by pacesetter";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_b8c4c7ca::after {
+    content: "This slorg holds immense power in its eyes.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* bday */
+#pet_p2_cb874e28::before {
+    content: "Gifted by Rudatsurugen";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_cb874e28::after {
+    content: "This slorg would love to know what a birthday is.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* black */
+#pet_p2_d2629270::before {
+    content: "Gifted by a mysterious slupporter";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_d2629270::after {
+    content: "This slorg is full of joie de vivre.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* blue */
+#pet_p2_0404f63c::before {
+    content: "Gifted by Slug & Rudatsurugen";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_0404f63c::after {
+    content: "This slorg loves crossword puzzles, even though it only knows 3 words.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* brown */
+#pet_p2_3ce70b4f::before {
+    content: "Gifted by TinyLutari, named by slorg";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_3ce70b4f::after {
+    content: "This slorg loves to lay in the loam.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* custard */
+#pet_p2_11b2ddd4::before {
+    content: "Gifted by Halloween, named by slorg";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_11b2ddd4::after {
+    content: "This slorg lives in constant fear of being licked.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* darigan */
+#pet_p2_54ef9533::before {
+    content: "Gifted by Altaria & pacesetter, named by slorg";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_54ef9533::after {
+    content: "This slorg loves bouncy castles, inflatable pools and yoga balls.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* disco */
+#pet_p2_865922bf::before {
+    content: "Gifted by Ambaaargh";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_865922bf::after {
+    content: "This slorg has never been beaten in Monopoly, mostly because they start eating the pieces when they're losing.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* dung */
+#pet_p2_fdc145c6::before {
+    content: "Gifted by Ray & clove";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_fdc145c6::after {
+    content: "This slorg is a great gardener, but a bad bath bomb.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* edgy */
+#pet_p2_b25415aa::before {
+    content: "Named by Rowan";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_b25415aa::after {
+    content: "This slorg secretly loves Slanic! At the Disco.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* faerie */
+#pet_p2_d206f356::before {
+    content: "Gifted by Taylor";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_d206f356::after {
+    content: "This slorg is very proud of their 200 Slorgstagram followers.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* fire */
+#pet_p2_2c756106::before {
+    content: "Named by slorg";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_2c756106::after {
+    content: "This slorg has been banned from 3 national parks and intends to be banned from more.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* ghost */
+#pet_p2_64ebc3d7::before {
+    content: "Gifted by Rudatsurugen & Slug";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_64ebc3d7::after {
+    content: "This slorg uses its powers to sneak into rides without a ticket.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* gold*/
+#pet_p2_b8d51eb7::before {
+    content: "Gifted by Magpie & Bisquik";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_b8d51eb7::after {
+    content: "This slorg has two brain cells.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* grey */
+#pet_p2_02b1aa8e::before {
+    content: "Gifted by faust";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_02b1aa8e::after {
+    content: "This slorg is frequently stressed out about current world affairs.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* halloween */
+#pet_p2_ee0818ee::before {
+    content: "Gifted by Rudatsurugen";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_ee0818ee::after {
+    content: "This slorg is up to no good.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* island */
+#pet_p2_7931f182::before {
+    content: "Gifted by Magpie";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_7931f182::after {
+    content: "This slorg is unaware that they are immortal.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* jelly */
+#pet_p2_cd131194::before {
+    content: "Gifted by growleaf";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_cd131194::after {
+    content: "This slorg loves to sleep on a plate in the refrigerator.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* mara */
+#pet_p2_e14193fa::before {
+    content: "Named by Kenna";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_e14193fa::after {
+    content: "This slorg loves to play with yarn.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* mutant */
+#pet_p2_b7e37609::before {
+    content: "Gifted by Electricity";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_b7e37609::after {
+    content: "hhelp m e.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* nugget */
+#pet_p2_ac47d53c::before {
+    content: "Named by slorg, desc by Hawkeye0021";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_ac47d53c::after {
+    content: "This slorg loves getting baked.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* pink */
+#pet_p2_a1d9e328::before {
+    content: "Gifted by Taylor";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_a1d9e328::after {
+    content: "This slorg has 15 traffic violations and counting.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* pirate */
+#pet_p2_ea1f4006::before {
+    content: "Gifted by Rudatsurugen & Electricity, named after Magpie's pet Zeke";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_ea1f4006::after {
+    content: "This slorg has an 8-pack. This slorg is shredded.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* plushie */
+#pet_p2_c22f8da2::before {
+    content: "Named by Patrick";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_c22f8da2::after {
+    content: "This slorg loves to be launched out of cannons at full force.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* purple */
+#pet_p2_9d230fc6::before {
+    content: "Gifted by Magpie";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_9d230fc6::after {
+    content: "This slorg would like to buy a car.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* rainbow */
+#pet_p2_18db13fd::before {
+    content: "Gifted by kadoatie & Surfy";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_18db13fd::after {
+    content: "This slorg fed a Choco Spritz to a kad and doesn't understand why their owner is so mad.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* red */
+#pet_p2_314875d8::before {
+    content: "Gifted by many lovely slupporters, named by woon";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_314875d8::after {
+    content: "This slorg still thinks they'll update their fanfiction eventually.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* sketch */
+#pet_p2_84f59cf5::before {
+    content: "Gifted by Frog";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_84f59cf5::after {
+    content: "This slorg can't decide what colour they want to be.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* slorg */
+#pet_p2_fecc9b4c::before {
+    content: "Gifted by many lovely slupporters";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_fecc9b4c::after {
+    content: "This slorg loves Grundo's Cafe!";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* snow */
+#pet_p2_38edbc79::before {
+    content: "Gifted by chien_chien and many lovely slupporters";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_38edbc79::after {
+    content: "This slorg is allergic to fire.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* spotted */
+#pet_p2_0eec6f7b::before {
+    content: "Gifted by Ambaaargh";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_0eec6f7b::after {
+    content: "This slorg can't start their day without a black coffee.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* starry */
+#pet_p2_e17d6d88::before {
+    content: "Gifted by Slug, Halloween & Falcon";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_e17d6d88::after {
+    content: "This slorg dreams of seeing Mamma Mia! on Broadway.";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* strawberry*/
+#pet_p2_eabab686::before {
+    content: "Named by lleuwynn, gifted by Rummy";
+    width: 150px;
+    display: block;
+    margin: auto;
+    border: 2px dotted #999;
+    border-radius: 15px;
+    background: #f4f4f4;
+    color: #666
+    }
+#pet_p2_eabab686::after {
+    content: "This slorg is just the sweetest!";
+    width: 200px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+/* tyrannian */
+#pet_p2_ef9c8da1::before {
+    content: "Named by slorg";
+    width: 150px;
+    display: block;
+    margin: 5px auto;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: #eee;
+    color: #555
+    }
+
+@media (orientation: portrait) and (max-width: 955px) {
+	body, #blurb, #nav {
+		font-size: 0.85rem;
+	}
+    #container, #page_content {
+		width: 80vw;
+    }
+	.flex-2col {
+		flex: 1 1 30%;
+	}
+}
